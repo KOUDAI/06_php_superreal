@@ -99,4 +99,6 @@ $taxi1->lower(2);
 echo '<br>';
 
 // 一人降車
-$taxi1->lower(2);
+$taxi1->lower(1010000);
+
+
