@@ -7,12 +7,12 @@ Class Car
     protected $name;
     protected $number;
     protected $color;
-
+    
     public function __construct($name, $number, $color)
     {
-        $this-> name = $name;
-        $this-> number = $number;
-        $this-> color = $color;
+        $this->name = $name;
+        $this->number = $number;
+        $this->color = $color;
     }
     public function getName()
     {
@@ -30,7 +30,7 @@ Class Car
     {
         $this->name = $name;
     }
-
+    
     public function setNumber($number)
     {
         $this->number = $number;
@@ -41,7 +41,7 @@ Class Car
     }
     public function infomation()
     {
-        echo '車の車種:' . $this-> name . '､車体番号:' . $this-> number . '､カラー:' . $this-> color . 'です｡' ;
+        echo '車の車種:' . $this->name . '､車体番号:' . $this->number . '､カラー:' . $this->color . 'です｡' ;
     }
     
 }
@@ -53,23 +53,23 @@ Class Taxi extends Car
     {
         if ($this->passenger >= $lower) {
             echo $lower . '人降車しました｡';
+            $this->passenger -= $lower;
         }
         else 
         {
             echo '降車人数に誤りがあります｡ ';
         }
-        $this->passenger -= $lower;
     }
     
     public function pickUp($pickUp)
     {
         $this->passenger += $pickUp;
-        echo '乗車人数は' . $this->passenger . '人です｡ ';
         
     }
     public function infomation()
     {
-        echo '車の車種:' . $this-> name . '､車体番号:' . $this-> number . '､カラー:' . $this-> color . '､' ;
+        
+        echo '車の車種:' . $this->name . '､車体番号:' . $this->number . '､カラー:' . $this->color . '､' . '乗車人数は' . $this->passenger . '人です｡';
     }
 }
 
@@ -86,12 +86,11 @@ echo '<hr>';
 $taxi1 = new Taxi('クラウンのタクシー', 222, 'black');
 
 // 3人乗車
+$taxi1->pickUp(3);
+// echo '<br>';
 
 // タクシーの情報表示を表示
 echo $taxi1->infomation();
-// echo '<br>';
-
-$taxi1->pickUp(3);
 echo '<br>';
 
 // 2人降車
